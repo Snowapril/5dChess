@@ -8,6 +8,13 @@
 [![pre-commit github action](https://github.com/${nickname}/${project_name}/actions/workflows/pre-commit.yml/badge.svg?branch=main)](https://github.com/${nickname}/${project_name}/actions)
 [![codecov](https://codecov.io/gh/${nickname}/${project_name}/branch/main/graph/badge.svg?token=DEXQCY7L76)](https://codecov.io/gh/${nickname}/${project_name})
 
+## How to Use (You should edit)
+```bash
+python project-gen.py
+```
+You should input repository name, your name and nickname sequentially.
+These informations must matched with your github repository.
+
 ## dependency
 *   doctest
 
