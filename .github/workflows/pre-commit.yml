@@ -1,0 +1,47 @@
+name: pre-commit
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+jobs:
+  build-ubuntu:
+    env:
+      build_type: "Debug"
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: "Ubuntu 20.04 + GCC-9"
+            os: ubuntu-20.04
+            compiler: gcc
+            version: "9"
+    runs-on: ${{matrix.os}}
+    name: ${{matrix.name}}
+    steps:
+    - uses: actions/checkout@v1
+      with:
+        submodules: true
+    - name: Install Dependency
+      run: |
+        sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+        sudo apt-get update
+        sudo apt-get install build-essential clang clang-format clang-tidy uncrustify cppcheck
+        if [ "${{ matrix.compiler }}" = "gcc" ]; then
+          sudo apt-get install cmake gcc-${{ matrix.version }} g++-${{ matrix.version }}
+        else
+          sudo apt-get install cmake clang-${{ matrix.version }} clang++-${{ matrix.version }}
+        fi
+    - name: Configure Compiler
+      run: |
+        if [ "${{ matrix.compiler }}" = "gcc" ]; then
+          echo "CC=gcc-${{ matrix.version }}" >> $GITHUB_ENV
+          echo "CXX=g++-${{ matrix.version }}" >> $GITHUB_ENV
+        else
+          echo "CC=clang-${{ matrix.version }}" >> $GITHUB_ENV
+          echo "CXX=clang++-${{ matrix.version }}" >> $GITHUB_ENV
+        fi
+    - name: Configure Build
+      run: mkdir build && cd build && cmake .. -DCMAKE_BUILD_TYPE=${{env.build_type}} -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+    - uses: actions/setup-python@v2
+    - uses: pre-commit/action@v2.0.2

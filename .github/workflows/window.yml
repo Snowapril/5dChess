@@ -1,0 +1,32 @@
+name: Window
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+jobs:
+  build-window:
+    env:
+      build_type: "Release"
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: "Windows Server 2019 + Visual Studio 2019"
+            os: windows-2019
+          - name: "Windows Server 2016 + Visual Studio 2017"
+            os: windows-2016
+    runs-on: ${{matrix.os}}
+    name: ${{matrix.name}}
+    steps:
+    - uses: actions/checkout@v1
+      with:
+        submodules: true
+    - name: Configure Build
+      run: mkdir build && cd build && cmake -DCMAKE_GENERATOR_PLATFORM=x64 -DCMAKE_BUILD_TYPE=${{env.build_type}} ..
+    - name: Add MSBuild to PATH
+      uses: microsoft/setup-msbuild@v1.0.2
+    - name: Build
+      run: cd build && MSBuild.exe ${project_name}.sln /p:Configuration=${{env.build_type}}
+    - name: Run Unit Test
+      run: /a/${project_name}/${project_name}/build/bin/${{env.build_type}}/UnitTests.exe
