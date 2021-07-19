@@ -8,12 +8,14 @@
 [![pre-commit github action](https://github.com/snowapril/5dChess/actions/workflows/pre-commit.yml/badge.svg?branch=main)](https://github.com/snowapril/5dChess/actions)
 [![codecov](https://codecov.io/gh/snowapril/5dChess/branch/main/graph/badge.svg?token=DEXQCY7L76)](https://codecov.io/gh/snowapril/5dChess)
 
-## How to Use (You should edit)
+## How to Build
 ```bash
-python project-gen.py
+git clone --recursive https://github.com/snowapril/5dChess
+cd 5dChess
+mkdir build
+cd build
+cmake ..
 ```
-You should input repository name, your name and nickname sequentially.
-These informations must matched with your github repository.
 
 ## dependency
 *   doctest
