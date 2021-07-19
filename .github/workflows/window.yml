@@ -27,6 +27,6 @@ jobs:
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
     - name: Build
-      run: cd build && MSBuild.exe ${project_name}.sln /p:Configuration=${{env.build_type}}
+      run: cd build && MSBuild.exe 5dChess.sln /p:Configuration=${{env.build_type}}
     - name: Run Unit Test
-      run: /a/${project_name}/${project_name}/build/bin/${{env.build_type}}/UnitTests.exe
+      run: /a/5dChess/5dChess/build/bin/${{env.build_type}}/UnitTests.exe

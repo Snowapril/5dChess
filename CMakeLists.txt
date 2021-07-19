@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 3.18 FATAL_ERROR)
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/Builds/CMake")
 
 # Declare project
-project(${project_name})
+project(5dChess)
 
 # Set output directories
 set(DEFAULT_CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_LIBRARY_OUTPUT_DIRECTORY})

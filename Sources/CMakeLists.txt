@@ -1,5 +1,5 @@
 # Target name
-set(target ${project_name})
+set(target 5dChess)
 
 # Define root directory
 set(root_dir ${CMAKE_CURRENT_SOURCE_DIR}/../..)

@@ -50,4 +50,4 @@ jobs:
     - name: Build
       run: cd build && make
     - name: Run Unit Test
-      run: /Users/runner/work/${project_name}/${project_name}/build/bin/UnitTests
+      run: /Users/runner/work/5dChess/5dChess/build/bin/UnitTests
