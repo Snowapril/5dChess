@@ -2,7 +2,7 @@
 set(target 5dChess)
 
 # Define root directory
-set(root_dir ${CMAKE_CURRENT_SOURCE_DIR}/../..)
+set(root_dir ${CMAKE_CURRENT_SOURCE_DIR}/..)
 
 # Includes
 include_directories(
@@ -23,7 +23,7 @@ file(GLOB_RECURSE sources
 )
 
 # Build executable
-add_executable(${target}
+add_library(${target}
     ${sources})
 
 # Project options
