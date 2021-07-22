@@ -16,6 +16,7 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/lib)
 # Includes
 include_directories(Includes)
 include_directories(Libraries)
+include_directories(Libraries/entt/single_include)
 
 # Set enable output of compile commands during generation
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
