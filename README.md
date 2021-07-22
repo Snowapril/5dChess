@@ -8,6 +8,8 @@
 [![pre-commit github action](https://github.com/snowapril/5dChess/actions/workflows/pre-commit.yml/badge.svg?branch=main)](https://github.com/snowapril/5dChess/actions)
 [![codecov](https://codecov.io/gh/snowapril/5dChess/branch/main/graph/badge.svg?token=DEXQCY7L76)](https://codecov.io/gh/snowapril/5dChess)
 
+This is project for building 5d chess environment to RL developers. ECS will be adopted for DDD.
+
 ## How to Build
 ```bash
 git clone --recursive https://github.com/snowapril/5dChess
@@ -18,7 +20,8 @@ cmake ..
 ```
 
 ## dependency
-*   doctest
+*   [doctest](https://github.com/onqtam/doctest)
+*   [entt](https://github.com/skypjack/entt)
 
 ## License
 <img align="right" src="http://opensource.org/trademarks/opensource/OSI-Approved-License-100x137.png">
